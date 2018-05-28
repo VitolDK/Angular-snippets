@@ -1,0 +1,65 @@
+<div class="upload-image"
+     [class.upload-image--invalid]="status.invalid">
+  <ui-card-cmp class="d-block"
+               [cardTitle]="imageTitle"
+               [cardSubTitle]="imageSubTitle"
+               [cardHeaderActions]="true">
+    <a [@opacity]
+       *ngIf="!image.results"
+       href="javascript:;"
+       (click)="input.click()"
+       class="ui-card__action">
+      {{'UPLOAD_IMAGE.ADD_PHOTO' | translate}}
+    </a>
+    <div [class.ui-card__content--flash]="contentIsAddClassFlash" class="ui-card__content">
+      <input #input
+             title=" "
+             type="file"
+             placeholder=" "
+             (dragover)="flashField(true)"
+             (dragleave)="flashField(false)"
+             class="upload-image__input"
+             (change)="onChanges($event)"
+             [accept]="image.types.join()">
+      <div class="upload-image__panel">
+        <div class="upload-image__inner">
+          <div [@opacity]
+               *ngIf="image.results"
+               class="upload-image__box-image">
+            <div (click)="removeImage()"
+                 class="upload-image__remove">
+              <icon-cmp name="close"
+                        class="upload-image__remove--icon"></icon-cmp>
+            </div>
+            <img alt="{{imageTitle}}"
+                 [src]="image.results"
+                 [ngStyle]="{'max-width.px': image.pixels[0], 'max-height.px':  image.pixels[1]}"
+                 class="upload-image__image">
+          </div>
+          <div [@opacity]
+               *ngIf="!image.results"
+               class="upload-image__no-image">
+            <icon-cmp name="no-upload-image"></icon-cmp>
+            <p class="upload-image__no-image--title">
+              {{'UPLOAD_IMAGE.DROP_PHOTO' | translate}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--<div [class.text-danger]="status.invalid"
+           class="upload-image__options text-center">
+        <div *ngIf="image.pixel != 'off'"
+             class="upload-image__option">
+          ({{(('UPLOAD_IMAGE.' + (image.pixel.toUpperCase()) + '_PIXELS') | translate: {pixels: image.pixels.join('x') + 'px'}).toLowerCase()}})
+        </div>
+        <div class="upload-image__option">
+          ({{('UPLOAD_IMAGE.NO_MORE_SIZE' | translate).toLowerCase()}} {{image.size | myFileSize}})
+        </div>
+      </div>-->
+    </div>
+  </ui-card-cmp>
+
+  <!--<div [@collapse] *ngIf="status.invalid" class="upload-image__errors">
+    <div class="upload-image__error">{{status.message | translate}}</div>
+  </div>-->
+</div>

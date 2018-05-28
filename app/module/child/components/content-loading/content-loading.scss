@@ -1,0 +1,14 @@
+@import '../../../../../styles/options/index';
+
+.content-loading {
+  $s: 50px;
+  height: $s;
+  position: relative;
+  @include svg-styles {
+    width: $s;
+    height: $s;
+    path, rect {
+      fill: $primary-orange;
+    }
+  }
+}

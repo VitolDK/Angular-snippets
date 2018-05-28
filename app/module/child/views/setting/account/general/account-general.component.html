@@ -1,0 +1,55 @@
+<notify-cmp [items]="1"></notify-cmp>
+<layout-content-cmp [directionPrimary]="true" [secondaryContent]="false">
+  <ui-annotated-section-cmp [annotatedTitle]="'ACCOUNT_DETAIL.GENERAL.TITLE' | translate" [description]="true" class="left-content">
+    <div class="ui-annotated-section__description">
+      <p>{{'ACCOUNT_DETAIL.GENERAL.DESCRIPTION' | translate}}</p>
+    </div>
+    <skeleton-cards-cmp *ngIf="loading" [count]="3" class="ui-annotated-section__content"></skeleton-cards-cmp>
+    <ui-card-cmp *ngIf="!loading" class="ui-annotated-section__content">
+      <div class="ui-card__content inner-row-offset-form-group-input">
+        <div class="row">
+          <form-group-input-cmp [form]="form"
+                                type="text"
+                                name="first_name"
+                                class="col-sm-12 col-md-6"
+                                [label]="'COMMON.FIRST_NAME' | translate"
+                                [messages]="[
+                                  {type: 'minlength', text: ('INPUT.VALIDATION.MIN_LENGTH' | translate:{count: 2})},
+                                  {type: 'maxlength', text: ('INPUT.VALIDATION.MAX_LENGTH' | translate:{count: 30})}
+                                ]"></form-group-input-cmp>
+          <form-group-input-cmp [form]="form"
+                                type="text"
+                                name="last_name"
+                                class="col-sm-12 col-md-6"
+                                [label]="'COMMON.LAST_NAME' | translate"
+                                [messages]="[
+                                  {type: 'minlength', text: ('INPUT.VALIDATION.MIN_LENGTH' | translate:{count: 2})},
+                                  {type: 'maxlength', text: ('INPUT.VALIDATION.MAX_LENGTH' | translate:{count: 30})}
+                                ]"></form-group-input-cmp>
+        </div>
+      </div>
+    </ui-card-cmp>
+  </ui-annotated-section-cmp>
+</layout-content-cmp>
+<layout-content-cmp *ngIf="!loading" [directionPrimary]="true" [secondaryContent]="false">
+  <div class="left-content">
+    <hr class="hr__offset">
+    <div class="footer">
+      <div class="footer__remove"></div>
+      <div class="footer__save">
+        <button type="button"
+                [disabled]="!unSaveService.view"
+                (click)="unSaveService[unSaveService.state.isNew ? 'leave' : 'discard']()"
+                class="ui-btn ui-btn--default">
+          {{'COMMON.' + (unSaveService.state.isNew ? 'CANCEL' : 'DISCARD') | translate}}
+        </button>
+        <button type="submit"
+                (click)="save()"
+                [disabled]="form.invalid || !unSaveService.view"
+                class="ui-btn ui-btn--primary">
+          {{'COMMON.SAVE' | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+</layout-content-cmp>

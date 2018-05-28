@@ -1,0 +1,48 @@
+@import '../../../../../styles/options/index';
+
+$header-h: $header-height;
+$aside-o: $aside-width-desktop;
+$trial-h: $trial-height;
+
+.ui-main {
+  display: block;
+  padding-right: 0;
+  min-height: 100vh;
+  padding-bottom: 0;
+  padding-top: $header-h;
+  @media (min-width: $to-min-md) {
+    padding-left: $aside-o;
+  }
+  @include e('wrapper') {
+    position: relative;
+    background-color: $ui-main__wrapper--background-color;
+  }
+}
+
+.trial-box {
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  height: $trial-h;
+  justify-content: center;
+  background-color: $trial-box--background-color;
+  @media (min-width: $to-min-md) {
+    left: $aside-o;
+    width: calc(100% - #{$aside-o});
+  }
+  @include e('content') {
+    padding: 10px;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+  }
+  @include e('message') {
+    color: $white;
+    font-weight: 400;
+    line-height: 20px;
+    padding-right: 10px;
+  }
+}

@@ -1,0 +1,77 @@
+<header class="header">
+  <div class="hd-top-bar w-100">
+    <div class="hd-top-bar__branding">
+      <a href="javascript:;" (click)="main()" class="hd-top-bar__branding--link d-flex align-items-center">
+        TEST
+      </a>
+    </div>
+    <div class="hd-top-bar__list">
+      <div class="hd-top-bar__item hd-top-bar__item--lg-hidden">
+        <button type="button" (click)="toggleAside()" class="hd-top-bar__btn">
+          <icon-cmp [name]="'menu'"></icon-cmp>
+        </button>
+      </div>
+      <div class="hd-top-bar__item hd-top-bar__item--full">
+        <a [routerLink]="links.main.routerLink()"
+           class="hd-top-bar__item--mr-56 hd-top-bar__item--lg-hidden d-flex align-items-center">
+          <span class="text-uppercase hd-top-bar__branding--link">TEST</span>
+        </a>
+      </div>
+      <div class="hd-top-bar__item hd-top-bar__item--separated hd-top-bar__item--bleed hd-top-bar__item--md-hidden">
+        <div dropdown class="hd-top-bar__item hd-top-bar__item--bleed">
+          <button type="button" dropdownToggle class="hd-top-bar__btn-profile">
+            <span class="hd-top-bar__btn-profile--title">
+              {{user && user.username || ('HEADER.PROFILE' | translate)}}
+            </span>
+          </button>
+          <div *dropdownMenu class="dropdown-menu dropdown-menu-right">
+            <ul class="ui-action-list">
+              <div class="ui-action-list__tooltip ui-action-list__tooltip--top ui-action-list__tooltip--right"></div>
+              <li class="ui-action-list__item">
+                <a routerLinkActive="ui-action-list-action--active"
+                   href="javascript:;" (click)="profile()" class="ui-action-list-action">
+                  <span class="ui-action-list-action__text">{{'HEADER.PROFILE' | translate}}</span>
+                </a>
+              </li>
+              <li class="ui-action-list__item">
+                <a href="javascript:;" (click)="logout()" class="ui-action-list-action">
+                  <span class="ui-action-list-action__text">{{'COMMON.LOGOUT' | translate}}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="hd-top-bar__item hd-top-bar__item--separated-white hd-top-bar__item--bleed">
+         <div class="hd-top-bar__question">?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [@opacity] *ngIf="unSave.view" class="hd-top-bar hd-top-bar--white  hd-top-bar--aps w-100">
+    <div class="hd-top-bar__branding">
+      <a href="javascript:;" (click)="main()" class="hd-top-bar__branding--link hd-top-bar__branding--link--dark d-flex align-items-center">
+        <img hidden image="img/favicon.png" [static]="true" alt="Getmeal">
+        <span class="text-uppercase">Getmeal</span>
+      </a>
+    </div>
+    <div class="hd-top-bar__list">
+      <div class="hd-top-bar__item hd-top-bar__item--separated hd-top-bar__item--separated--c-aside hd-top-bar__item--un-save hd-top-bar__item--full p-0">
+        <div class="ui-main__body ui-main__body--large ui-main__body--min-h-auto ui-main__body--o-visible w-100">
+          <div class="hd-top-bar__un-saved">
+            <div class="hd-top-bar__un-saved-title">{{'UNSAVED_DATA.HEADER' | translate}}</div>
+            <div class="hd-top-bar__un-saved-btn">
+              <button (click)="unSave[unSave.state.isNew ? 'leave' : 'discard'](); mixEvent('FORM-' + (unSave.state.isNew ? 'LEAVE' : 'DISCARD'))" class="ui-btn ui-btn--default">
+                {{'COMMON.' + (unSave.state.isNew ? 'CANCEL' : 'DISCARD') | translate}}
+              </button>
+              <button [disabled]="!unSave.state.change || !unSave.state.save"
+                      (click)="unSave.save(); mixEvent('FORM-SAVE')"
+                      class="ui-btn ui-btn--primary">
+                {{(unSave.saveButtonName || 'COMMON.SAVE') | translate}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,29 @@
+<layout-header-cmp [layoutTitle]="user.username" [layoutSeparator]="false" [layoutNavigation]="{name: (links.main.name | translate), link: links.main.routerLink()}"></layout-header-cmp>
+<div class="layout-sub-menu">
+  <div class="layout-sub-menu__inner">
+    <div class="layout-sub-menu__item">
+      <a routerLinkActive="layout-sub-menu__item--active"
+         [routerLinkActiveOptions]="{exact: true}"
+         [routerLink]="links.settingAccountGeneral.routerLink()"
+         class="layout-sub-menu__item--link">
+        {{links.settingAccountGeneral.name | translate}}
+      </a>
+    </div>
+    <div class="layout-sub-menu__item">
+      <a routerLinkActive="layout-sub-menu__item--active"
+         [routerLink]="links.settingAccountEmail.routerLink()"
+         class="layout-sub-menu__item--link">
+        {{links.settingAccountEmail.name | translate}}
+      </a>
+    </div>
+    <div class="layout-sub-menu__item">
+      <a routerLinkActive="layout-sub-menu__item--active"
+         [routerLink]="links.settingAccountPassword.routerLink()"
+         class="layout-sub-menu__item--link">
+        {{links.settingAccountPassword.name | translate}}
+      </a>
+    </div>
+  </div>
+  <hr class="hr__offset mt-0">
+</div>
+<router-outlet></router-outlet>

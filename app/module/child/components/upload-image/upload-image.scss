@@ -1,0 +1,136 @@
+@import '../../../../../styles/options/index';
+
+.upload-image {
+  .ui-card {
+    @include e('content') {
+      position: relative;
+      transition: background-color 0.2s;
+      @include m('flash') {
+        background-color: rgba($primary-orange, 0.1);
+      }
+      &:hover {
+        .upload-image {
+          @include e('box-image') {
+            &:before {
+              opacity: 1;
+              pointer-events: auto;
+            }
+          }
+          @include e('remove') {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  @include m('invalid') {
+    .ui-card {
+      box-shadow: 0 0 0 2px $form-group-input--invalid--box-shadow;
+    }
+  }
+  @include e('panel') {
+    max-width: 225px;
+    position: relative;
+    @include size(100%);
+    margin: 0 auto 20px;
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+  }
+  @include e('inner') {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    position: absolute;
+    @include size(100%);
+    align-content: center;
+    justify-content: center;
+  }
+  @include e('input') {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer;
+    @include size(100%);
+    position: absolute!important;
+  }
+  @include e('box-image') {
+    top: 0;
+    left: 0;
+    display: flex;
+    overflow: hidden;
+    border-radius: 5px;
+    position: absolute;
+    @include size(100%);
+    align-items: center;
+    justify-content: center;
+    &:before {
+      top: 0;
+      left: 0;
+      opacity: 0;
+      content: '';
+      position: absolute;
+      @include size(100%);
+      pointer-events: none;
+      transition: all 0.2s;
+      background-color: rgba($black, 0.5);
+    }
+  }
+  @include e('remove') {
+    top: 0;
+    right: 0;
+    z-index: 1;
+    opacity: 0;
+    padding: 5px;
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    transition: all 0.2s;
+    justify-content: center;
+    &:hover {
+      .upload-image {
+        @include e('remove') {
+          @include m('icon') {
+            @include svg-styles {
+              fill: $orange
+            }
+          }
+        }
+      }
+    }
+    @include m('icon') {
+      @include svg-styles {
+        fill: $red;
+        transition: fill 0.2s;
+      }
+    }
+  }
+  @include e('image') {
+    object-fit: contain;
+    @include size(100%);
+  }
+  @include e('no-image') {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    @include svg-styles {
+      @include size(150px)
+    }
+    @include m('title') {
+      font-weight: 500;
+    }
+  }
+  @include e('options') {
+    font-size: 11px;
+    padding-top: 8px;
+    color: $ink-lightest;
+  }
+}

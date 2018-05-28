@@ -1,0 +1,29 @@
+$header-h: $header-height;
+$trial-h: $trial-height;
+
+.ui-main {
+  @include e('body') {
+    margin: 0 auto;
+    max-width: 784px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.2s;
+    min-height: calc(100vh - #{$header-h});
+    @include m('o-visible') {
+      overflow: visible;
+    }
+    @include m('min-h-auto') {
+      min-height: auto;
+    }
+    @include m('large') {
+      max-width: 998px;
+    }
+    @include m('pb') {
+      padding-bottom: $trial-h;
+    }
+    @media (min-width: $to-min-sm) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+}

@@ -1,0 +1,329 @@
+$black: black;
+$white: white;
+$ink: #212b36;
+$ink-light: #454f5b;
+$ink-lighter: #637381;
+$ink-lightest: #919eab;
+$sky: #dfe3e8;
+$sky-dark: #c4cdd5;
+$sky-light: #f4f6f8;
+$sky-lighter: #f9fafb;
+$red-text: #583c35;
+$red-darken: #330202;
+$red-dark: #bf0711;
+$red: #ed6347;
+$red-light: #fdac9a;
+$red-lighter: #fbeae5;
+$orange: #f49342;
+$orange-dark: #c05717;
+$orange-darken: #4a1504;
+$orange-text: #594430;
+$orange-light: #ffc48b;
+$orange-lighter: #fcebdb;
+$yellow-text: #595130;
+$yellow-darken: #573b00;
+$yellow-dark: #9c6f19;
+$yellow: #edc200;
+$yellow-light: #ffea8a;
+$yellow-lighter: #fcf0cd;
+$green-text: #414f3e;
+$green-darken: #173630;
+$green-dark: #108043;
+$green: #50b83c;
+$green-light: #bbe5b3;
+$green-lighter: #e3f1df;
+$teal-text: #405352;
+$teal-darken: #003136;
+$teal-dark: #00848e;
+$teal: #47c1bf;
+$teal-light: #b6eceb;
+$teal-lighter: #e0f5f4;
+$blue: #007ace;
+$blue-text: #3e4e57;
+$blue-dark: #084e8a;
+$blue-light: #b4e0fa;
+$blue-darken: #00152a;
+$blue-lighter: #ebf4fa;
+$indigo: #5c6ac4;
+$indigo-text: #3e4155;
+$indigo-light: #b3bcf5;
+$indigo-dark: #202e78;
+$indigo-darken: #000639;
+$indigo-lighter: #f3f4fa;
+$purple-text: #50495a;
+$purple-dark: #50248f;
+$purple-darken: #230051;
+$purple: #9c6ade;
+$purple-light: #e3d0ff;
+$purple-lighter: #f5f0fc;
+
+$grid-gutter-width: 20px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+
+$col-sm: map-get($grid-breakpoints, 'sm');
+$col-md: map-get($grid-breakpoints, 'md');
+$col-lg: map-get($grid-breakpoints, 'lg');
+$col-xl: map-get($grid-breakpoints, 'xl');
+
+$to-min-sm: $col-sm + 1;
+$to-max-sm: $col-sm - 1;
+
+$to-min-md: $col-md + 1;
+$to-max-md: $col-md - 1;
+
+$to-min-lg: $col-lg + 1;
+$to-max-lg: $col-lg - 1;
+
+$to-min-xl: $col-xl + 1;
+$to-max-xl: $col-xl - 1;
+
+$bc-html: #f4f6f8 !default;
+$c-body: #212b35 !default;
+
+$header-height: 56px;
+$aside-width-desktop: 240px;
+$aside-width-mobile: 264px;
+$trial-height: 60px;
+
+$primary-orange: #F0635E;
+$primary-brown: #36363D;
+
+
+$html--background-color: $bc-html;
+$html---media--max-width--background-color: $white;
+
+$body--color: $c-body;
+
+$a--color: $primary-orange;
+$a--hover--color: darken($primary-orange, 13);
+
+$icon-fill--white--fill: $white;
+$icon-fill__path--white--fill: $white;
+
+$input--webkit-autofill--focus--box-shadow: 0 0 0 1000px $white inset !important;;
+
+$icon-info--grey--background-color: #95a7b7;
+$icon-info--grey__svg--fill: $white;
+
+$highlight--background-color: #fcfcd1;
+
+$text-subdued--color: #637381;
+
+$next-heading--subdued--color: #637381;
+
+$next-heading--callout--color: #c3cfd8;
+$next-heading--callout--darker--color: #798c9c;
+
+$next-heading--micro-uppercase-bordered--color: #798c9c;
+
+$sub-header-home__subtitle--color: $ink-lighter;
+
+$loading-global--background-color: rgba(0, 0, 0, 0.5);
+
+$select-plan---media--max-width: 1079px;
+
+$pricing-card__tag--color: $c-body;
+
+$ui-annotated-section__description--color: #637381;
+
+$ui-subheading--subdued--color: $ink-lighter;
+
+$is-status--background-color: rgb(223, 227, 232);
+$is-status--active--background-color: rgb(187, 229, 179);
+
+
+/* UI-ACTION-LIST START */
+$ui-action-list__ui-action-list--border: #dfe4e8;
+
+$ui-action-list-action--color: $c-body;
+$ui-action-list-action--active--color: $white;
+$ui-action-list-action--active--background-color: $primary-orange;
+/* UI-ACTION-LIST END */
+
+
+/* FEED-ITEM START */
+$feed-item-next-card--background-color: $white;
+$feed-item-next-card--background-color: $white;
+
+$feed-item-next-card--bc-darken--color: $white;
+$feed-item-next-card--bc-darken--background-color: $primary-brown;
+/* FEED-ITEM END */
+
+
+/* FORM-GROUP-INPUT START */
+$form-group-label--color: $c-body;
+
+$form-group-input--color: $black;
+$form-group-input--border: $sky-dark;
+$form-group-input--background-color: $white;
+$form-group-input--box-shadow: rgba(63, 63, 68, 0.05);
+$form-group-input--invalid--border: $red;
+$form-group-input--invalid--box-shadow: $red;
+$form-group-input--invalid--background-color: $red-lighter;
+$form-group-input--is-focused--border: $primary-brown;
+$form-group-input--is-focused--background-color: $white;
+$form-group-input--is-focused--box-shadow: $primary-brown;
+$form-group-input__label--fill: #798c9c;
+$form-group-input__input--color: #31373d;
+$form-group-messages__label--color: $red;
+/* FORM-GROUP-INPUT END */
+
+
+/* FORM-GROUP-RADIO START */
+$form-group-radio__input--border: $sky-dark;
+$form-group-radio__input--background-color: $white;
+$form-group-radio__input--checked__radio--border-color: $primary-orange;
+$form-group-radio__input--checked__radio--background-color: $primary-orange;
+$form-group-radio__radio--background-color: $white;
+$form-group-radio__radio--danger-color: $red;
+$form-group-radio__radio--success-color: $green;
+$form-group-radio__radio--border: $primary-orange;
+$form-group-radio__radio--box-shadow: rgba(22,29,37,0.05);
+$form-group-radio__radio--background-gradient--start: $white;
+$form-group-radio__radio--background-gradient--end: $sky-lighter;
+$form-group-checkbox--gray__checkbox--border-color: $ink-lightest;
+/* FORM-GROUP-RADIO END */
+
+/* FORM-GROUP-SELECT START */
+$form-group-select--color: $form-group-input--color;
+$form-group-select--border: $form-group-input--border;
+$form-group-select--background-color: $form-group-input--background-color;
+$form-group-select--box-shadow: $form-group-input--box-shadow;
+$form-group-select--invalid--border: $form-group-input--invalid--border;
+$form-group-select--invalid--box-shadow: $form-group-input--invalid--box-shadow;
+$form-group-select--invalid--background-color: $form-group-input--invalid--background-color;
+$form-group-select--invalid--background-color: $form-group-input--invalid--background-color;
+$form-group-select--is-focused--border: $form-group-input--is-focused--border;
+$form-group-select--is-focused--box-shadow: $form-group-input--is-focused--box-shadow;
+$form-group-select--is-focused--background-color: $form-group-input--is-focused--background-color;
+$form-group-select__select--color: $form-group-input__input--color;
+$form-group-select__icon__svg--fill: $form-group-input--border;
+/* FORM-GROUP-SELECT END */
+
+/* UI-LAYOUT START*/
+// HEADER
+$layout-header__breadcrumbs--color: #798c9c;
+$layout-header__container--separator--border-bottom: #dfe4e8;
+// CONTENT
+$ui-layout-content-direction-content--no-first--border-top: #dfe4e8;
+// HELP
+$layout-help-content__content--border: #dfe4e8;
+$layout-help-content__icon--fill: $teal;
+$layout-help-content__icon--background-color: $white;
+/* UI_LAYOUT END */
+
+
+/* UI-CARD START */
+$ui-card--box-shadow-start: 0 0 0 1px rgba(63, 63, 68, 0.05);
+$ui-card--box-shadow-end: 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+$ui-card--type-subdued-background-color: $sky-lighter;
+$ui-card__content__ui-card__content--border: #dfe4e8;
+/* UI-CARD END */
+
+
+/* MODULE ACCOUNT START */
+$account-setup__header--h1--color: $c-body;
+$account-setup__header--subheader--color: #767676;
+$account-setup__form--background-color: $white;
+$account-setup__legal--color: #767676;
+$trial_expired__header--title--color: #31373d;
+$trial_expired__header--subtitle--color: #798c9c;
+/* MODULE ACCOUNT END */
+
+// UI-ASIDE
+$ui-aside--border: #dfe4e8;
+$ui-aside--background-color: $bc-html;
+$ui-aside__backdrop--background-color: rgba(33, 43, 53, 0.86);
+$ui-aside__a-profile__btn--active--background: rgba($black, 0.28);
+$ui-aside__a-profile__arrow__svg--fill: $ink-lightest;
+$ui-aside__a-profile__menu--background-color: $white;
+$ui-aside__a-profile__menu--box-shadow-start: 0 0 0 1px rgba(63,63,68,0.05);
+$ui-aside__a-profile__menu--box-shadow-end: 0 1px 3px 0 rgba(63,63,68,0.15);
+
+// UI-NAV
+$ui-nav__icon__svg--fill: $ink-lightest;
+$ui-nav__link--color: $c-body;
+$ui-nav__link--hover--color: $c-body;
+$ui-nav__link--hover__ui-nav__icon__svg--fill: $ink-lighter;
+$ui-nav__item--active__ui-nav__label--color: $primary-orange !important;
+$ui-nav__item--active__ui-nav__icon__svg--fill: $primary-orange !important;
+$ui-nav-action__link__svg--fill: $ink-lightest;
+
+// HEADER
+$header__hd-top-bar--background-color: $primary-brown;
+$header__hd-top-bar--white--background-color: $white;
+$header__hd-top-bar--white--box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+$header__hd-top-bar__btn--hover--background-color: rgba($white, 0.08);
+$header__hd-top-bar__btn--active--background-color: rgba($black, 0.28);
+$header__hd-top-bar__btn__svg--fill: $white;
+$header__hd-top-bar__branding--link--color: $white;
+$header__hd-top-bar__branding--link--dark--color: $primary-brown;
+$header__hd-top-bar__un-saved-title--color: #637381;
+$header__hd-top-bar__item--color: $white;
+$header__hd-top-bar__item--un-save--color: $primary-brown;
+$header__hd-top-bar__item--separated--border: 1px solid rgba($black, .42);
+$header__hd-top-bar__item--separated--c-aside--border-color: #dfe4e8;
+$header__hd-top-bar__item--separated-white--border: 1px solid rgba($white, .42);
+$header__hd-top-bar__btn-profile--color: $white;
+$header__hd-top-bar__btn-profile--hover--color: $primary-orange;
+$header__hd-top-bar__question--color: $white;
+$header__hd-top-bar__question--border: $white;
+
+// LAYOUT-EMPTY-CONTENT
+$layout-empty-content__layout-c--color: #637381;
+$layout-empty-content__layout-c__subtitle--color: #637381;
+$layout-empty-content__layout-c__details--color: #576775;
+
+// UI-MAIN
+$ui-main__wrapper--background-color: $bc-html;
+$trial-box--background-color: $primary-brown;
+
+$locations__map--border: $sky-dark;
+$locations__map--box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+
+// WORK-TIME
+$work-time--item--size: 45px;
+$work-time--border-line: 1px solid $primary-brown;
+$work-time__item--active--color: $white;
+$work-time__item--active--background-color: $primary-orange;
+
+/* MODULE MAIN END */
+
+
+/* MODULE SIGN START */
+$sign--title--color: $c-body;
+$sign--background-color: $bc-html;
+$sign__content--text-shadow: 0 1px 0 $white;
+$sign__logo--name--color: $primary-brown;
+/* MODULE SIGN END */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

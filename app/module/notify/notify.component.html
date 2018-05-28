@@ -1,0 +1,10 @@
+<div class="notify">
+  <alert [@collapse] [type]="notify.type" [dismissible]="notify.dismissible" [dismissOnTimeout]="notify.timeout" class="notify__item" *ngFor="let notify of list" (onClosed)="close(notify)">
+    <div class="notify__inner">
+      <div *ngIf="notify.icon" class="notify__icon">
+        <svg-icon class="d-flex notify__icon--icon" [src]="pathSVG(notify.icon)"></svg-icon>
+      </div>
+      <div class="notify__content" [innerHtml]="toHtml(notify.text)"></div>
+    </div>
+  </alert>
+</div>

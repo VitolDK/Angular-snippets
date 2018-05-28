@@ -1,0 +1,88 @@
+.ui-action-list {
+  margin: 0;
+  padding: 8px 0;
+  list-style-type: none;
+  @include e('tooltip') {
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    margin-left: -10px;
+    position: absolute;
+    pointer-events: none;
+    @include m('top') {
+      top: -20px;
+      &:after {
+        top: 15px;
+      }
+    }
+    @include m('bottom') {
+      bottom: -20px;
+      &:after {
+        bottom: 15px;
+      }
+    }
+    @include m('right') {
+      margin-left: 15%;
+    }
+    @include m('double-right') {
+      margin-left: 30%;
+    }
+    @include m('left') {
+      margin-left: -15%;
+    }
+    @include m('double-left') {
+      margin-left: -30%;
+    }
+    &:after {
+      left: 50%;
+      width: 10px;
+      content: '';
+      height: 10px;
+      display: block;
+      margin-left: -5px;
+      position: absolute;
+      transform: rotate(45deg);
+      background-color: rgba(255,255,255,0.98);
+      box-shadow: 0 0 0 1px rgba(39,44,48,0.05), 0 2px 7px 1px rgba(39,44,48,0.16);
+    }
+  }
+  @include e('list') {
+    width: 100%;
+  }
+  + .ui-action-list {
+    border-top: 1px solid $ui-action-list__ui-action-list--border;
+  }
+}
+
+.ui-action-list-action {
+  border: 0;
+  display: block;
+  width: inherit;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 0;
+  font-weight: 400;
+  padding: 8px 16px;
+  line-height: 20px;
+  text-align: inherit;
+  white-space: nowrap;
+  transition: all 0.2s;
+  text-transform: initial;
+  letter-spacing: initial;
+  background-color: transparent;
+  color: $ui-action-list-action--color;
+  @include m('active') {
+    color: $ui-action-list-action--active--color;
+    background-color: $ui-action-list-action--active--background-color;
+  }
+  &:hover {
+    @extend .ui-action-list-action--active
+  }
+  @include e('text') {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

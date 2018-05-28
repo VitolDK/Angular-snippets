@@ -1,0 +1,104 @@
+.next-heading {
+  font-size: 17px;
+  margin: 0 0 20px;
+  font-weight: 500;
+  line-height: 24px;
+  @media (min-width: $to-min-sm) {
+    font-size: 16px
+  }
+  @include m('1') {
+    font-size: 22px;
+  }
+  @include m('2') {
+    font-size: 20px;
+  }
+  @include m('3') {
+    font-size: 18px;
+  }
+  @include m('tiny') {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: initial;
+    text-transform: initial;
+    @media (min-width: $to-min-sm) {
+      font-size: 14px
+    }
+  }
+  @include m('small') {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 16px;
+    text-transform: uppercase;
+    @media (min-width: $to-min-sm) {
+      font-size: 12px
+    }
+    @supports ((-webkit-font-feature-settings: "smcp") or (font-feature-settings: "smcp")) and (not (-webkit-font-feature-settings: "smcp")) {
+      font-size: 15px;
+      letter-spacing: initial;
+      text-transform: lowercase;
+      font-feature-settings: 'smcp';
+      -webkit-font-feature-settings: 'smcp';
+    }
+  }
+  @include m('large') {
+    font-size: 24px;
+  }
+  @include m('xl') {
+    font-size: 32px;
+  }
+  @include m('light-weight') {
+    font-weight: 300;
+  }
+  @include m('semi-bold') {
+    font-weight: 500;
+  }
+  @include m('subdued') {
+    color: $next-heading--subdued--color
+  }
+  @include m('callout') {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 16px;
+    color: $next-heading--callout--color;
+    text-transform: uppercase;
+    @include m('darker') {
+      color: $next-heading--callout--darker--color;
+    }
+    @media (min-width: $to-min-sm) {
+      font-size: 12px
+    }
+    @supports ((-webkit-font-feature-settings: "smcp") or (font-feature-settings: "smcp")) and (not (-webkit-font-feature-settings: "smcp")) {
+      font-size: 15px;
+      letter-spacing: initial;
+      text-transform: lowercase;
+      font-feature-settings: 'smcp';
+      -webkit-font-feature-settings: 'smcp';
+    }
+    a.subdued:hover {
+      text-decoration: underline
+    }
+  }
+  @include m('truncated') {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  @include m('micro-uppercase-bordered') {
+    margin: 0;
+    font-size: 11px;
+    padding: 10px 20px 5px;
+    text-transform: uppercase;
+    border-bottom: solid 1px #ebeef0;
+    color: $next-heading--micro-uppercase-bordered--color;
+  }
+  @include m('no-margin') {
+    margin: 0
+  }
+  @include m('half-margin') {
+    margin: 0 0 10px
+  }
+  @include m('quarter-margin') {
+    margin: 0 0 5px
+  }
+}

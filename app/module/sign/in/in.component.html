@@ -1,0 +1,42 @@
+<form class="form" [formGroup]="form" (submit)="onSubmit()" novalidate autocomplete="off">
+  <h1 class="sign--title">{{'SIGN.IN.TITLE' | translate}}</h1>
+  <div class="sign__actions sign__actions--top d-flex justify-content-between">
+    {{"COMMON.SIGN_NEW" | translate}}
+  </div>
+  <div [class.form__group-input--errors]="errorMessage"
+       class="form__group-input form__group-input--better">
+    <form-group-input-cmp type="text"
+                          [form]="form"
+                          name="username"
+                          (change)="hideErrorMessage()"
+                          [icon]="{type: 'svg', name: 'user'}"
+                          placeholder="{{'COMMON.EMAIL_OR_LOGIN' | translate}}"
+                          [messages]="[
+                                {type: 'required', text: ('INPUT.VALIDATION.REQUIRED' | translate)},
+                                {type: 'minlength', text: ('INPUT.VALIDATION.MIN_LENGTH' | translate:{count: 2})}
+                              ]">
+    </form-group-input-cmp>
+    <form-group-input-cmp [form]="form"
+                          name="password"
+                          type="password"
+                          (change)="hideErrorMessage()"
+                          [icon]="{type: 'svg', name: 'password'}"
+                          placeholder="{{'COMMON.PASSWORD' | translate}}"
+                          [messages]="[
+                                {type: 'required', text: ('INPUT.VALIDATION.REQUIRED' | translate)},
+                                {type: 'minlength', text: ('INPUT.VALIDATION.MIN_LENGTH' | translate:{count: 3})}
+                              ]">
+    </form-group-input-cmp>
+    <div *ngIf="errorMessage" [@collapse] class="text-left form-group-messages form-group-messages--mt-negative">
+      <div class="form-group-messages__item form-group-messages__label">
+        {{errorMessage}}
+      </div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="form.invalid || loading" class="ui-btn ui-btn--primary sign__btn-submit w-100">
+    {{'COMMON.SIGN_IN' | translate}}
+  </button>
+  <div class="sign__actions sign__actions--bottom d-flex justify-content-center">
+    <a [routerLink]="" class="link">{{'COMMON.RECOVER' | translate}}?</a>
+  </div>
+</form>

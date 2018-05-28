@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">
+    {{text.header}}
+  </h4>
+  <button type="button"
+          (click)="closeAndSave(false)"
+          class="close pull-right"
+          aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div *ngIf="!loading" class="modal-body">
+  <div>
+    <img [src]="result" [ngx-cropper]="options" (cropEvent)="cropEvent($event)">
+  </div>
+</div>
+<div class="modal-footer">
+  <button *ngIf="text.cancel" type="button"
+          (click)="closeAndSave(false)"
+          class="ui-btn ui-btn--default">
+    {{text.cancel}}
+  </button>
+  <button *ngIf="text.confirm" type="button"
+          (click)="closeAndSave(cropped.result)"
+          class="ui-btn ui-btn--primary">
+    {{text.confirm}}
+  </button>
+</div>

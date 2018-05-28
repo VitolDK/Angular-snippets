@@ -1,0 +1,19 @@
+<main class="ui-main">
+  <div class="ui-main__wrapper">
+    <div [ngClass]="{'ui-main__body--pb': trial.show, 'ui-main__body--large': isLarge}" class="ui-main__body">
+      <router-outlet></router-outlet>
+    </div>
+    <div *ngIf="trial.show" [@collapse] class="ui-main__trial trial-box">
+      <div class="trial-box__content">
+        <div class="trial-box__message">
+          {{'TRIAL_BOX.LEFT' | translate:trial.left}}
+        </div>
+        <div class="trial-box__action">
+          <button (click)="settingAccountPlan()" class="ui-btn ui-btn--primary">
+            {{'COMMON.SELECT_PLAN' | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,43 @@
+<div class="form-group-wrapper" [formGroup]="form">
+  <label *ngIf="label" [for]="name" class="form-group-label d-block">
+    <span [innerHtml]="label"></span>
+    <span *ngIf="isRequired" class="text-danger">*</span>
+  </label>
+  <label [for]="name" [ngClass]="{
+     'form-group-input--is-focused': focus,
+     'form-group-input--disabled': form.get(name).disabled,
+     'form-group-input--invalid': form.get(name).touched && form.get(name).errors,
+     'form-group-input--valid': form.get(name).touched && !form.get(name).errors,
+     'form-group-input--reverse': isReverse
+     }" class="form-group-input">
+    <label *ngIf="icon"
+           [ngSwitch]="icon.type"
+           class="form-group-input__label"
+           [for]="!icon.action ? name : ''"
+           [class.cursor-pointer]="icon.action"
+           (click)="icon.action && iconAction()"
+           [class.form-group-input__label--offset-reverse]="isReverse">
+      <icon-cmp *ngSwitchCase="'svg'" [name]="icon.name" class="form-group-input__label--icon"></icon-cmp>
+      <div *ngSwitchCase="'char'" class="form-group-input__label--icon" [innerHtml]="icon.name"></div>
+    </label>
+    <input [id]="name"
+           [name]="name"
+           [type]="type"
+           (focus)="isFocus(true)"
+           (blur)="isFocus(false)"
+           [formControlName]="name"
+           [placeholder]="placeholder"
+           class="form-group-input__input"
+           [ngClass]="{'form-group-input__input--has-icon': icon}"/>
+  </label>
+  <div [@collapse] *ngIf="form.get(name).touched && form.get(name).errors && messages.length" class="form-group-messages">
+    <div *ngFor="let message of messages">
+      <div [@collapse] *ngIf="form.get(name).hasError(message.type)" class="form-group-messages__item">
+        <label [for]="name" class="form-group-messages__label mb-0">
+          {{message.text}}
+        </label>
+      </div>
+    </div>
+  </div>
+  <input hidden [name]="name" [type]="type" [placeholder]="placeholder">
+</div>

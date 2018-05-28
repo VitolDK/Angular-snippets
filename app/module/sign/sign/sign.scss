@@ -1,0 +1,67 @@
+@import "../../../../styles/options/index";
+
+.sign {
+  display: flex;
+  height: 100vh;
+  min-height: 100vh;
+  padding-top: 98px;
+  justify-content: center;
+  background-color: $sign--background-color;
+  @include m('title') {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    color: $sign--title--color;
+    @media (min-width: $col-sm) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+  @include e('header') {
+    margin-bottom: 10px;
+  }
+  @include e('wrapper') {
+    width: 100%;
+    max-width: 340px;
+    position: relative;
+    height: fit-content;
+  }
+  @include e('content') {
+    min-width: 280px;
+    position: relative;
+    text-align: center;
+    text-shadow: $sign__content--text-shadow;
+  }
+  @include e('btn-submit') {
+    padding-top: 13px !important;
+    padding-bottom: 13px !important;
+  }
+  @include e('actions') {
+    @include m('top') {
+      margin-bottom: 16px;
+    }
+    @include m('bottom') {
+      margin-top: 16px;
+    }
+  }
+  @include e('logo') {
+    display: inline-block;
+    @include m('img') {
+      $s: 32px;
+      @include size($s);
+      object-fit: cover;
+    }
+    @include m('name') {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 32px;
+      padding-left: 10px;
+      text-transform: uppercase;
+      color: $sign__logo--name--color;
+    }
+  }
+  .form-group-wrapper {
+    margin-bottom: 15px;
+  }
+}
